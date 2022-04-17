@@ -44,10 +44,10 @@ class Cycling extends Workout {
         this.speed = this.distance / (this.duration / 60);
     }
 }
-const run1 = new Running([39, -12], 5.2, 24, 178);
-const cycling1 = new Cycling([39, -12], 27, 95, 178);
+// const run1 = new Running([39, -12], 5.2, 24, 178);
+// const cycling1 = new Cycling([39, -12], 27, 95, 178);
 
-console.log(run1, cycling1)
+// console.log(run1, cycling1)
 ///////////////////////////////
 class App {
     #mapEvent;
@@ -129,18 +129,21 @@ class App {
 
             workout = new Cycling([lat, lng], distance, duration, elevation);
         }
+        this.#workouts.push(workout)
+
         L.marker([lat, lng]).addTo(this.#map)
             .bindPopup(L.popup({
                 maxHeight: 250,
                 maxWidth: 100,
                 autoClose: false,
-                className: "running-popup",
+                className: `${type}-popup`,
                 closeOnClick: false
             }))
-            .setPopupContent("Workout")
+            .setPopupContent(`Workout ${workout.distance} `)
             .openPopup();
 
-        form.reset()
+        form.reset();
+        form.classList.add("hidden");
     }
 }
 

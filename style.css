@@ -28,7 +28,7 @@ body {
   height: 100vh;
   overscroll-behavior-y: none;
 
-  background-color: #fff;
+  background-color: rgb(138, 136, 136);
   padding: 2.5rem;
 
   display: flex;
